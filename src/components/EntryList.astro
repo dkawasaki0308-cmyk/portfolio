@@ -1,0 +1,39 @@
+---
+import { t, type Entry, type Lang } from '../data/profile';
+import { isExternal } from '../lib/url';
+
+interface Props {
+  entries: Entry[];
+  lang: Lang;
+}
+
+const { entries, lang } = Astro.props;
+---
+
+<ul class="entries">
+  {
+    entries.map((entry) => {
+      const title = t(entry.title, lang);
+      const external = entry.href && isExternal(entry.href);
+      return (
+        <li>
+          <div class:list={['entry-head', { 'no-date': !entry.date }]}>
+            {entry.date && <span class="entry-date">{entry.date}</span>}
+            <span class="entry-title">
+              {entry.href ? (
+                <a href={entry.href} {...(external ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {title}
+                  {external && <span class="ext" aria-hidden="true">↗</span>}
+                </a>
+              ) : (
+                title
+              )}
+            </span>
+            {entry.meta && <span class="entry-meta">{entry.meta}</span>}
+          </div>
+          {entry.note && <p class="entry-note">{t(entry.note, lang)}</p>}
+        </li>
+      );
+    })
+  }
+</ul>

@@ -117,6 +117,15 @@ h3 {
   gap: 1.25rem;
 }
 
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.lang-switch a {
+  color: var(--muted);
+}
+
+
 @media (max-width: 40rem) {
   .site-header {
     padding-top: 1.25rem;
@@ -159,6 +168,271 @@ h3 {
   }
 }
 
+/* ---------- エントリー一覧 ---------- */
+.entries {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.entries li {
+  padding-left: 0.2rem;
+}
+
+.entries li + li {
+  margin-top: 0.6rem;
+}
+
+.entries li::marker {
+  color: var(--line);
+}
+
+.entry-head {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.entry-date {
+  flex: none;
+  min-width: 4.2rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.entry-title {
+  flex: 1;
+}
+
+.entry-meta {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.entry-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.entry-head + .entry-note {
+  padding-left: 4.95rem;
+}
+
+.entry-head.no-date + .entry-note {
+  padding-left: 0;
+}
+
+.ext {
+  margin-left: 0.2em;
+  font-size: 0.75em;
+  color: var(--muted);
+}
+
+@media (max-width: 40rem) {
+  .entry-head {
+    flex-wrap: wrap;
+    gap: 0 0.75rem;
+  }
+
+  .entry-head + .entry-note {
+    padding-left: 0;
+  }
+}
+
+/* ---------- 折りたたみ ---------- */
+.archive {
+  margin-top: 0.75rem;
+}
+
+.archive summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  user-select: none;
+}
+
+.archive summary::-webkit-details-marker {
+  display: none;
+}
+
+.archive summary:hover {
+  color: var(--accent);
+}
+
+.plus {
+  position: relative;
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1px;
+  background: currentColor;
+}
+
+.plus::after {
+  transform: rotate(90deg);
+}
+
+.archive[open] .plus::after {
+  transform: rotate(0deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .plus::after {
+    transition: transform 0.2s ease;
+  }
+
+  .archive summary:active {
+    transform: translateY(1px);
+    transition: transform 90ms;
+  }
+}
+
+.archive .entries {
+  margin-top: 0.6rem;
+}
+
+/* ---------- セクション ---------- */
+.section {
+  margin-top: 3.5rem;
+}
+
+.section > h2 {
+  display: flex;
+  gap: 0.9rem;
+  align-items: baseline;
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.section-num {
+  font-family: var(--mono);
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.section-sub {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.group + .group {
+  margin-top: 1.25rem;
+}
+
+.group h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ---------- イントロ ---------- */
+.intro {
+  margin-top: 3rem;
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+}
+
+.intro h1 .alt {
+  margin-left: 0.6em;
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+:lang(en) .intro h1 {
+  font-family: var(--serif);
+  font-size: 2.1rem;
+  letter-spacing: 0;
+}
+
+:lang(en) .intro h1 .alt {
+  font-family: var(--sans);
+}
+
+.affiliation {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.bio {
+  margin: 1.25rem 0 0;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 0.25rem 1rem;
+  margin: 2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.facts dt {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding-top: 0.15rem;
+}
+
+.facts dd {
+  margin: 0;
+}
+
+@media (max-width: 40rem) {
+  .intro h1 {
+    font-size: 1.55rem;
+  }
+
+  .intro h1 .alt {
+    display: block;
+    margin-left: 0;
+  }
+
+  .facts {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .facts dd + dt {
+    margin-top: 0.5rem;
+  }
+}
+
 /* ---------- フッター ---------- */
 .site-footer {
   display: flex;
@@ -192,7 +466,8 @@ h3 {
   .site-header,
   .garden,
   .site-footer,
-  .skip {
+  .skip,
+  .plus {
     display: none;
   }
 
