@@ -344,6 +344,95 @@ h3 {
   color: var(--muted);
 }
 
+/* ---------- イントロ ---------- */
+.intro {
+  margin-top: 3rem;
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+}
+
+.intro h1 .alt {
+  margin-left: 0.6em;
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+:lang(en) .intro h1 {
+  font-family: var(--serif);
+  font-size: 2.1rem;
+  letter-spacing: 0;
+}
+
+:lang(en) .intro h1 .alt {
+  font-family: var(--sans);
+}
+
+.affiliation {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.bio {
+  margin: 1.25rem 0 0;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 0.25rem 1rem;
+  margin: 2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.facts dt {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding-top: 0.15rem;
+}
+
+.facts dd {
+  margin: 0;
+}
+
+@media (max-width: 40rem) {
+  .intro h1 {
+    font-size: 1.55rem;
+  }
+
+  .intro h1 .alt {
+    display: block;
+    margin-left: 0;
+  }
+
+  .facts {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .facts dd + dt {
+    margin-top: 0.5rem;
+  }
+}
+
 /* ---------- フッター ---------- */
 .site-footer {
   display: flex;

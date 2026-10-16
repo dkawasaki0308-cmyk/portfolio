@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import Garden from './Garden.astro';
+import Section from './Section.astro';
+import { profile, sections, ui, t, type Lang } from '../data/profile';
+import { url, isExternal } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const alternate = { ja: url('/'), en: url('/en/') };
+---
+
+<Base lang={lang} alternate={alternate}>
+  <Garden />
+
+  <section class="intro" aria-label="Profile">
+    <h1>
+      {t(profile.name, lang)}
+      <span class="alt" lang={lang === 'ja' ? 'en' : 'ja'}>{t(profile.nameAlt, lang)}</span>
+    </h1>
+    <p class="affiliation">{t(profile.affiliation, lang)}</p>
+    <p class="bio">{t(profile.bio, lang)}</p>
+    <ul class="profile-links">
+      {
+        profile.links.map((link) => (
+          <li>
+            <a href={link.href} {...(isExternal(link.href) ? { target: '_blank', rel: 'noopener me' } : {})}>
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <dl class="facts">
+      <dt>{t(ui.now, lang)}</dt>
+      <dd>{t(profile.now, lang)}</dd>
+      <dt>{t(ui.interests, lang)}</dt>
+      <dd>{t(profile.interests, lang)}</dd>
+    </dl>
+  </section>
+
+  {sections.map((section, index) => <Section section={section} index={index} lang={lang} />)}
+</Base>
