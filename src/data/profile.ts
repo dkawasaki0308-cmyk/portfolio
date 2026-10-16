@@ -30,17 +30,17 @@ export interface SectionData {
 }
 
 export const profile = {
-  name: { ja: '川崎 太郎', en: 'Taro Kawasaki' } as Text,
-  nameAlt: { ja: 'Taro Kawasaki', en: '川崎 太郎' } as Text,
-  handle: 'Kawasaki',
+  name: { ja: '川﨑 大輝', en: 'Daiki Kawasaki' } as Text,
+  nameAlt: { ja: 'Daiki Kawasaki', en: '川﨑 大輝' } as Text,
+  handle: 'monokanke',
   tagline: 'Flowers, birds & little thoughts.',
   affiliation: {
-    ja: '○○大学 ○○学部 ○○学科 2年',
-    en: '2nd-year undergraduate, Dept. of ○○, ○○ University',
+    ja: '神戸電子専門学校 ITエキスパート学科（4年制）3年',
+    en: '3rd year, IT Expert Course (4-year program), Kobe Institute of Computing - College of Computing',
   } as Text,
   bio: {
-    ja: 'ここに自己紹介文が入ります。興味のある分野や、最近取り組んでいることを 2〜3 文で書いてください。',
-    en: 'A short self-introduction goes here. Write two or three sentences about your interests and what you are working on.',
+    ja: '業務やドメインを整理し、体験の土台となる仕組みを設計するのが好きです。バックエンドと DB 設計を軸に、画面まで作れるフルスタックエンジニアを目指しています。',
+    en: "I love organizing complex domains and designing the systems that underpin great experiences. With backend and database design at my core, I'm working toward becoming a full-stack engineer who can build all the way to the UI.",
   } as Text,
   links: [
     { label: 'blog', href: '/blog/', internal: true },
@@ -50,12 +50,12 @@ export const profile = {
     { label: 'cv', href: '#' },
   ],
   now: {
-    ja: '○○ のプロダクトを開発中 / ○○ 研究室で ○○ の研究',
-    en: 'Building a product for ○○ / Researching ○○ at ○○ Lab',
+    ja: 'Web 系の技術を学びながら、バックエンド寄りのフルスタックエンジニアを目指しています',
+    en: 'Studying web technologies on my way to becoming a backend-leaning full-stack engineer',
   } as Text,
   interests: {
-    ja: 'HCI, Web フロントエンド, 分散システム',
-    en: 'HCI, web frontend, distributed systems',
+    ja: 'バックエンド、DB 設計、API 設計、ドメインの整理',
+    en: 'Backend, database design, API design, domain modeling',
   } as Text,
 };
 
