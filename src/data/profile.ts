@@ -70,86 +70,94 @@ export const sections: SectionData[] = [
       {
         entries: [
           {
-            date: '2026.08',
-            title: 'Project A',
-            href: 'https://github.com/',
-            note: { ja: '○○ を△△するための Web アプリ。Astro / TypeScript', en: 'A web app for doing △△ with ○○. Astro / TypeScript' },
+            title: { ja: 'KnowShare（個人開発）', en: 'KnowShare (personal project)' },
+            href: 'https://knowshare-ten.vercel.app/',
+            repo: 'https://github.com/dkawasaki0308-cmyk/knowshare',
+            note: {
+              ja: 'チーム内の知見共有サービス。Next.js / TypeScript / Prisma / PostgreSQL、Vercel で公開中',
+              en: 'A knowledge-sharing service for teams. Next.js / TypeScript / Prisma / PostgreSQL, live on Vercel',
+            },
           },
           {
-            date: '2026.03',
-            title: 'Project B',
-            href: 'https://github.com/',
-            note: { ja: 'ハッカソンで作った ○○ ツール', en: 'A ○○ tool built at a hackathon' },
+            title: { ja: 'Odoriba（Alpha+ 採択・開発中）', en: 'Odoriba (Alpha+, in development)' },
+            href: 'https://github.com/Greek-Academy/Odoriba',
+            note: {
+              ja: 'LiDAR で搬入経路を判定する引越し支援アプリ',
+              en: 'A moving-support app that checks furniture delivery routes with LiDAR',
+            },
           },
-        ],
-        archive: [
-          { date: '2025.09', title: 'Project C', note: { ja: '初めて作ったアプリ', en: 'My first app' } },
-          { date: '2025.04', title: 'Project D' },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'activities',
-    title: { ja: '研究・活動', en: 'Research & Activities' },
-    groups: [
-      {
-        heading: { ja: '発表', en: 'Presentations' },
-        entries: [
-          {
-            date: '2026.09',
-            title: { ja: '○○ を用いた △△ の検討', en: 'A study on △△ using ○○' },
-            note: { ja: '○○学会 全国大会（ポスター）', en: '○○ Society Annual Conference (Poster)' },
-          },
-        ],
-      },
-      {
-        heading: { ja: 'プログラム', en: 'Programs' },
-        entries: [
-          { date: '2026', title: { ja: '○○ 人材育成プログラム 採択', en: 'Selected for the ○○ Talent Program' } },
         ],
       },
     ],
   },
   {
     id: 'awards',
-    title: { ja: '受賞', en: 'Awards' },
+    title: { ja: '受賞・選出', en: 'Awards' },
     groups: [
       {
         entries: [
           {
-            date: '2026.07',
-            title: { ja: '○○ ハッカソン 最優秀賞', en: 'Grand Prize, ○○ Hackathon' },
-            note: { ja: '30 チーム中 1 位', en: '1st of 30 teams' },
+            date: '2026.09',
+            title: { ja: 'NTT ドコモ 5 日間ハッカソン 優勝', en: '1st place, NTT DOCOMO 5-day Hackathon' },
+            note: {
+              ja: '参加 36 人、テーマ「多くの人に届くサービス」',
+              en: '36 participants; theme: "A service that reaches many people"',
+            },
           },
-          { date: '2026.02', title: { ja: '○○ アイデアソン 企業賞', en: 'Sponsor Award, ○○ Ideathon' } },
-        ],
-        archive: [
-          { date: '2025.11', title: { ja: '○○ コンテスト 入賞', en: 'Finalist, ○○ Contest' } },
+          {
+            date: '2026.08',
+            title: { ja: 'ニフティ ハッカソン型インターン 優勝', en: '1st place, NIFTY Hackathon Internship' },
+            note: { ja: '参加 42 人', en: '42 participants' },
+          },
+          {
+            title: {
+              ja: '学内チーム制作大会「デジタルワークス」上位 16 チームに選出',
+              en: 'Top 16 teams, "Digital Works" campus team production contest',
+            },
+            note: {
+              ja: '作品「Knightry」。約 100 チーム・約 700 人が参加',
+              en: 'Project "Knightry"; about 100 teams and 700 participants',
+            },
+          },
         ],
       },
     ],
   },
   {
-    id: 'oss',
-    title: { ja: 'オープンソース', en: 'Open Source' },
+    id: 'activities',
+    title: { ja: '活動', en: 'Activities' },
     groups: [
       {
+        heading: { ja: 'プログラム', en: 'Programs' },
         entries: [
-          { title: 'owner/repo #123 — Fix typo in docs', href: 'https://github.com/', meta: '★1.2k' },
-          { title: 'owner/another #45 — Add option for ○○', href: 'https://github.com/', meta: '★320' },
+          {
+            title: { ja: 'Alpha+ にクリエータとして採択', en: 'Selected as a creator for Alpha+' },
+            note: {
+              ja: '経済産業省 AKATSUKI プロジェクトの枠組みのプログラム',
+              en: "A program under METI's AKATSUKI Project",
+            },
+          },
         ],
       },
-    ],
-  },
-  {
-    id: 'community',
-    title: { ja: 'コミュニティ', en: 'Community' },
-    groups: [
       {
+        heading: { ja: 'インターン', en: 'Internships' },
         entries: [
-          { date: '2026–', title: { ja: '○○ 勉強会 運営', en: 'Organizer, ○○ Study Group' } },
-          { date: '2025–', title: { ja: '○○ サークル 所属', en: 'Member, ○○ Club' } },
+          { title: { ja: 'ニフティ', en: 'NIFTY' } },
+          {
+            title: { ja: 'アスクル', en: 'ASKUL' },
+            note: { ja: 'DB 設計・API 設計を担当', en: 'Database and API design' },
+          },
+          { title: { ja: 'NTT ドコモ', en: 'NTT DOCOMO' } },
+          { title: { ja: 'NEC ネッツエスアイ', en: 'NEC Networks & System Integration' } },
+        ],
+      },
+      {
+        heading: { ja: 'コミュニティ', en: 'Community' },
+        entries: [
+          {
+            title: { ja: 'GDG Kwansai 運営スタッフ', en: 'Organizing staff, GDG Kwansai' },
+            note: { ja: '約 200〜260 人規模のイベントを担当', en: 'Ran events with about 200–260 attendees' },
+          },
         ],
       },
     ],
