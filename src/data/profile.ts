@@ -14,6 +14,8 @@ export interface Entry {
   note?: Text;
   /** 右端に小さく表示する補足（例: ★1.2k） */
   meta?: string;
+  /** タイトルのリンクとは別に、右端に出すリポジトリの URL */
+  repo?: string;
 }
 
 export interface Group {
