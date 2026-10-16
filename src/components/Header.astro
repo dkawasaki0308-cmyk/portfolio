@@ -1,0 +1,15 @@
+---
+import { profile, type Lang } from '../data/profile';
+import { url } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const home = lang === 'en' ? url('/en/') : url('/');
+---
+
+<header class="site-header wrap">
+  <a href={home} class="logo"><span class="logo-mark" aria-hidden="true">✳</span> {profile.handle}</a>
+</header>
