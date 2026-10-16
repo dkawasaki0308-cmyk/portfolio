@@ -33,7 +33,7 @@ export const profile = {
   name: { ja: '川﨑 大輝', en: 'Daiki Kawasaki' } as Text,
   nameAlt: { ja: 'Daiki Kawasaki', en: '川﨑 大輝' } as Text,
   handle: 'monokanke',
-  tagline: 'Flowers, birds & little thoughts.',
+  tagline: 'Building the ground beneath the experience.',
   affiliation: {
     ja: '神戸電子専門学校 ITエキスパート学科（4年制）3年',
     en: '3rd year, IT Expert Course (4-year program), Kobe Institute of Computing - College of Computing',
