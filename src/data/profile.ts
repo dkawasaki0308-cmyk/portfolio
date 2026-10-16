@@ -14,6 +14,8 @@ export interface Entry {
   note?: Text;
   /** 右端に小さく表示する補足（例: ★1.2k） */
   meta?: string;
+  /** タイトルのリンクとは別に、右端に出すリポジトリの URL */
+  repo?: string;
 }
 
 export interface Group {
@@ -30,32 +32,33 @@ export interface SectionData {
 }
 
 export const profile = {
-  name: { ja: '川崎 太郎', en: 'Taro Kawasaki' } as Text,
-  nameAlt: { ja: 'Taro Kawasaki', en: '川崎 太郎' } as Text,
-  handle: 'Kawasaki',
-  tagline: 'Flowers, birds & little thoughts.',
+  name: { ja: '川﨑 大輝', en: 'Daiki Kawasaki' } as Text,
+  nameAlt: { ja: 'Daiki Kawasaki', en: '川﨑 大輝' } as Text,
+  handle: 'monokanke',
+  tagline: 'Building the ground beneath the experience.',
   affiliation: {
-    ja: '○○大学 ○○学部 ○○学科 2年',
-    en: '2nd-year undergraduate, Dept. of ○○, ○○ University',
+    ja: '神戸電子専門学校 ITエキスパート学科（4年制）3年',
+    en: '3rd year, IT Expert Course (4-year program), Kobe Institute of Computing - College of Computing',
   } as Text,
   bio: {
-    ja: 'ここに自己紹介文が入ります。興味のある分野や、最近取り組んでいることを 2〜3 文で書いてください。',
-    en: 'A short self-introduction goes here. Write two or three sentences about your interests and what you are working on.',
+    ja: '業務やドメインを整理し、体験の土台となる仕組みを設計するのが好きです。バックエンドと DB 設計を軸に、画面まで作れるフルスタックエンジニアを目指しています。',
+    en: "I love organizing complex domains and designing the systems that underpin great experiences. With backend and database design at my core, I'm working toward becoming a full-stack engineer who can build all the way to the UI.",
   } as Text,
   links: [
     { label: 'blog', href: '/blog/', internal: true },
     { label: 'github', href: 'https://github.com/dkawasaki0308-cmyk' },
-    { label: 'x', href: 'https://x.com/' },
-    { label: 'linkedin', href: 'https://www.linkedin.com/' },
-    { label: 'cv', href: '#' },
+    { label: 'x', href: 'https://x.com/kanke943736' },
+    { label: 'linkedin', href: 'https://www.linkedin.com/in/%E5%A4%A7%E8%BC%9D-%E5%B7%9D%EF%A8%91-79871938b/' },
+    { label: 'qiita', href: 'https://qiita.com/monokanke' },
+    { label: 'zenn', href: 'https://zenn.dev/monokanke' },
   ],
   now: {
-    ja: '○○ のプロダクトを開発中 / ○○ 研究室で ○○ の研究',
-    en: 'Building a product for ○○ / Researching ○○ at ○○ Lab',
+    ja: 'Web 系の技術を学びながら、バックエンド寄りのフルスタックエンジニアを目指しています',
+    en: 'Studying web technologies on my way to becoming a backend-leaning full-stack engineer',
   } as Text,
   interests: {
-    ja: 'HCI, Web フロントエンド, 分散システム',
-    en: 'HCI, web frontend, distributed systems',
+    ja: 'バックエンド、DB 設計、API 設計、ドメインの整理',
+    en: 'Backend, database design, API design, domain modeling',
   } as Text,
 };
 
@@ -67,86 +70,94 @@ export const sections: SectionData[] = [
       {
         entries: [
           {
-            date: '2026.08',
-            title: 'Project A',
-            href: 'https://github.com/',
-            note: { ja: '○○ を△△するための Web アプリ。Astro / TypeScript', en: 'A web app for doing △△ with ○○. Astro / TypeScript' },
+            title: { ja: 'KnowShare（個人開発）', en: 'KnowShare (personal project)' },
+            href: 'https://knowshare-ten.vercel.app/',
+            repo: 'https://github.com/dkawasaki0308-cmyk/knowshare',
+            note: {
+              ja: 'チーム内の知見共有サービス。Next.js / TypeScript / Prisma / PostgreSQL、Vercel で公開中',
+              en: 'A knowledge-sharing service for teams. Next.js / TypeScript / Prisma / PostgreSQL, live on Vercel',
+            },
           },
           {
-            date: '2026.03',
-            title: 'Project B',
-            href: 'https://github.com/',
-            note: { ja: 'ハッカソンで作った ○○ ツール', en: 'A ○○ tool built at a hackathon' },
+            title: { ja: 'Odoriba（Alpha+ 採択・開発中）', en: 'Odoriba (Alpha+, in development)' },
+            href: 'https://github.com/Greek-Academy/Odoriba',
+            note: {
+              ja: 'LiDAR で搬入経路を判定する引越し支援アプリ',
+              en: 'A moving-support app that checks furniture delivery routes with LiDAR',
+            },
           },
-        ],
-        archive: [
-          { date: '2025.09', title: 'Project C', note: { ja: '初めて作ったアプリ', en: 'My first app' } },
-          { date: '2025.04', title: 'Project D' },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'activities',
-    title: { ja: '研究・活動', en: 'Research & Activities' },
-    groups: [
-      {
-        heading: { ja: '発表', en: 'Presentations' },
-        entries: [
-          {
-            date: '2026.09',
-            title: { ja: '○○ を用いた △△ の検討', en: 'A study on △△ using ○○' },
-            note: { ja: '○○学会 全国大会（ポスター）', en: '○○ Society Annual Conference (Poster)' },
-          },
-        ],
-      },
-      {
-        heading: { ja: 'プログラム', en: 'Programs' },
-        entries: [
-          { date: '2026', title: { ja: '○○ 人材育成プログラム 採択', en: 'Selected for the ○○ Talent Program' } },
         ],
       },
     ],
   },
   {
     id: 'awards',
-    title: { ja: '受賞', en: 'Awards' },
+    title: { ja: '受賞・選出', en: 'Awards' },
     groups: [
       {
         entries: [
           {
-            date: '2026.07',
-            title: { ja: '○○ ハッカソン 最優秀賞', en: 'Grand Prize, ○○ Hackathon' },
-            note: { ja: '30 チーム中 1 位', en: '1st of 30 teams' },
+            date: '2026.09',
+            title: { ja: 'NTT ドコモ 5 日間ハッカソン 優勝', en: '1st place, NTT DOCOMO 5-day Hackathon' },
+            note: {
+              ja: '参加 36 人、テーマ「多くの人に届くサービス」',
+              en: '36 participants; theme: "A service that reaches many people"',
+            },
           },
-          { date: '2026.02', title: { ja: '○○ アイデアソン 企業賞', en: 'Sponsor Award, ○○ Ideathon' } },
-        ],
-        archive: [
-          { date: '2025.11', title: { ja: '○○ コンテスト 入賞', en: 'Finalist, ○○ Contest' } },
+          {
+            date: '2026.08',
+            title: { ja: 'ニフティ ハッカソン型インターン 優勝', en: '1st place, NIFTY Hackathon Internship' },
+            note: { ja: '参加 42 人', en: '42 participants' },
+          },
+          {
+            title: {
+              ja: '学内チーム制作大会「デジタルワークス」上位 16 チームに選出',
+              en: 'Top 16 teams, "Digital Works" campus team production contest',
+            },
+            note: {
+              ja: '作品「Knightry」。約 100 チーム・約 700 人が参加',
+              en: 'Project "Knightry"; about 100 teams and 700 participants',
+            },
+          },
         ],
       },
     ],
   },
   {
-    id: 'oss',
-    title: { ja: 'オープンソース', en: 'Open Source' },
+    id: 'activities',
+    title: { ja: '活動', en: 'Activities' },
     groups: [
       {
+        heading: { ja: 'プログラム', en: 'Programs' },
         entries: [
-          { title: 'owner/repo #123 — Fix typo in docs', href: 'https://github.com/', meta: '★1.2k' },
-          { title: 'owner/another #45 — Add option for ○○', href: 'https://github.com/', meta: '★320' },
+          {
+            title: { ja: 'Alpha+ にクリエータとして採択', en: 'Selected as a creator for Alpha+' },
+            note: {
+              ja: '経済産業省 AKATSUKI プロジェクトの枠組みのプログラム',
+              en: "A program under METI's AKATSUKI Project",
+            },
+          },
         ],
       },
-    ],
-  },
-  {
-    id: 'community',
-    title: { ja: 'コミュニティ', en: 'Community' },
-    groups: [
       {
+        heading: { ja: 'インターン', en: 'Internships' },
         entries: [
-          { date: '2026–', title: { ja: '○○ 勉強会 運営', en: 'Organizer, ○○ Study Group' } },
-          { date: '2025–', title: { ja: '○○ サークル 所属', en: 'Member, ○○ Club' } },
+          { title: { ja: 'ニフティ', en: 'NIFTY' } },
+          {
+            title: { ja: 'アスクル', en: 'ASKUL' },
+            note: { ja: 'DB 設計・API 設計を担当', en: 'Database and API design' },
+          },
+          { title: { ja: 'NTT ドコモ', en: 'NTT DOCOMO' } },
+          { title: { ja: 'NEC ネッツエスアイ', en: 'NEC Networks & System Integration' } },
+        ],
+      },
+      {
+        heading: { ja: 'コミュニティ', en: 'Community' },
+        entries: [
+          {
+            title: { ja: 'GDG Kwansai 運営スタッフ', en: 'Organizing staff, GDG Kwansai' },
+            note: { ja: '約 200〜260 人規模のイベントを担当', en: 'Ran events with about 200–260 attendees' },
+          },
         ],
       },
     ],

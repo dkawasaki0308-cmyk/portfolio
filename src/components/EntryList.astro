@@ -30,6 +30,11 @@ const { entries, lang } = Astro.props;
               )}
             </span>
             {entry.meta && <span class="entry-meta">{entry.meta}</span>}
+            {entry.repo && (
+              <a class="entry-meta" href={entry.repo} target="_blank" rel="noopener">
+                github<span class="ext" aria-hidden="true">↗</span>
+              </a>
+            )}
           </div>
           {entry.note && <p class="entry-note">{t(entry.note, lang)}</p>}
         </li>
