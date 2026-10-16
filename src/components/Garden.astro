@@ -1,0 +1,10 @@
+---
+import { profile } from '../data/profile';
+import { url } from '../lib/url';
+---
+
+<figure class="garden">
+  <canvas data-garden aria-hidden="true"></canvas>
+  <figcaption lang="en">{profile.tagline}</figcaption>
+</figure>
+<script is:inline defer src={url('/garden.js')}></script>

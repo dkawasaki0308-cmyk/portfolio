@@ -1,0 +1,33 @@
+---
+import EntryList from './EntryList.astro';
+import Archive from './Archive.astro';
+import { t, type Lang, type SectionData } from '../data/profile';
+
+interface Props {
+  section: SectionData;
+  index: number;
+  lang: Lang;
+}
+
+const { section, index, lang } = Astro.props;
+const num = String(index + 1).padStart(2, '0');
+// 日本語ページでは英語の見出しを小さく添える
+const sub = lang === 'ja' && typeof section.title !== 'string' ? section.title.en : undefined;
+---
+
+<section class="section" id={section.id} aria-labelledby={`${section.id}-title`}>
+  <h2 id={`${section.id}-title`}>
+    <span class="section-num">{num}</span>
+    <span>{t(section.title, lang)}</span>
+    {sub && <span class="section-sub" lang="en">{sub}</span>}
+  </h2>
+  {
+    section.groups.map((group) => (
+      <div class="group">
+        {group.heading && <h3>{t(group.heading, lang)}</h3>}
+        <EntryList entries={group.entries} lang={lang} />
+        {group.archive && group.archive.length > 0 && <Archive entries={group.archive} lang={lang} />}
+      </div>
+    ))
+  }
+</section>

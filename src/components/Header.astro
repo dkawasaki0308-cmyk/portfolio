@@ -1,0 +1,25 @@
+---
+import { profile, ui, t, type Lang } from '../data/profile';
+import { url } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+  /** 言語切り替え先 */
+  alternate?: { ja: string; en: string };
+}
+
+const { lang, alternate = { ja: url('/'), en: url('/en/') } } = Astro.props;
+const home = lang === 'en' ? url('/en/') : url('/');
+---
+
+<header class="site-header wrap">
+  <a href={home} class="logo"><span class="logo-mark" aria-hidden="true">✳</span> {profile.handle}</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href={url('/blog/')}>{t(ui.blog, lang)}</a>
+    <span class="lang-switch">
+      <a href={alternate.ja} lang="ja" hreflang="ja" aria-current={lang === 'ja' ? 'true' : undefined}>JA</a>
+      /
+      <a href={alternate.en} lang="en" hreflang="en" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+    </span>
+  </nav>
+</header>

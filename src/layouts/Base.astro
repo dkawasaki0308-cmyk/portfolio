@@ -1,0 +1,47 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { profile, ui, t, type Lang } from '../data/profile';
+import { url } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  alternate?: { ja: string; en: string };
+}
+
+const { lang, title, description, alternate } = Astro.props;
+const siteName = t(profile.name, lang);
+const pageTitle = title ? `${title} — ${siteName}` : siteName;
+const desc = description ?? t(profile.bio, lang);
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang} id="top">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    {alternate && <link rel="alternate" hreflang="ja" href={new URL(alternate.ja, Astro.site)} />}
+    {alternate && <link rel="alternate" hreflang="en" href={new URL(alternate.en, Astro.site)} />}
+    <meta property="og:type" content={title ? 'article' : 'website'} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
+    <link rel="stylesheet" href={url('/styles.css')} />
+  </head>
+  <body>
+    <a class="skip" href="#main">{t(ui.skip, lang)}</a>
+    <Header lang={lang} alternate={alternate} />
+    <main id="main" class="wrap">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

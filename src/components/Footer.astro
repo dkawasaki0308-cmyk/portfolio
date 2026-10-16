@@ -1,0 +1,18 @@
+---
+import { profile, ui, t, type Lang } from '../data/profile';
+import { url } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<footer class="site-footer wrap">
+  <nav aria-label="Footer">
+    <a href={url('/blog/')}>{t(ui.blog, lang)}</a>
+    <a href="#top">{t(ui.top, lang)}</a>
+  </nav>
+  <span>© {new Date().getFullYear()} {profile.handle}</span>
+</footer>

@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Garden from './Garden.astro';
+import Section from './Section.astro';
+import { profile, sections, ui, t, type Lang } from '../data/profile';
+import { url, isExternal, formatDate } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+const alternate = { ja: url('/'), en: url('/en/') };
+---
+
+<Base lang={lang} alternate={alternate}>
+  <Garden />
+
+  <section class="intro" aria-label="Profile">
+    <h1>
+      {t(profile.name, lang)}
+      <span class="alt" lang={lang === 'ja' ? 'en' : 'ja'}>{t(profile.nameAlt, lang)}</span>
+    </h1>
+    <p class="affiliation">{t(profile.affiliation, lang)}</p>
+    <p class="bio">{t(profile.bio, lang)}</p>
+    <ul class="profile-links">
+      {
+        profile.links.map((link) => (
+          <li>
+            <a
+              href={link.internal ? url(link.href) : link.href}
+              {...(isExternal(link.href) ? { target: '_blank', rel: 'noopener me' } : {})}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <dl class="facts">
+      <dt>{t(ui.now, lang)}</dt>
+      <dd>{t(profile.now, lang)}</dd>
+      <dt>{t(ui.interests, lang)}</dt>
+      <dd>{t(profile.interests, lang)}</dd>
+    </dl>
+  </section>
+
+  {sections.map((section, index) => <Section section={section} index={index} lang={lang} />)}
+
+  <section class="section" id="blog" aria-labelledby="blog-title">
+    <h2 id="blog-title">
+      <span>{t(ui.blog, lang)}</span>
+      {lang === 'ja' && <span class="section-sub" lang="en">Blog</span>}
+    </h2>
+    {
+      posts.length > 0 ? (
+        <ul class="post-list">
+          {posts.map((post) => (
+            <li>
+              <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+              <a href={url(`/blog/${post.id}/`)}>{post.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="entry-note">{t(ui.noPosts, lang)}</p>
+      )
+    }
+    <p class="more"><a href={url('/blog/')}>{t(ui.allPosts, lang)}</a></p>
+  </section>
+</Base>
