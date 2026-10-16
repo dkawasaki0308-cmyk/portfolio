@@ -45,9 +45,10 @@ export const profile = {
   links: [
     { label: 'blog', href: '/blog/', internal: true },
     { label: 'github', href: 'https://github.com/dkawasaki0308-cmyk' },
-    { label: 'x', href: 'https://x.com/' },
-    { label: 'linkedin', href: 'https://www.linkedin.com/' },
-    { label: 'cv', href: '#' },
+    { label: 'x', href: 'https://x.com/kanke943736' },
+    { label: 'linkedin', href: 'https://www.linkedin.com/in/%E5%A4%A7%E8%BC%9D-%E5%B7%9D%EF%A8%91-79871938b/' },
+    { label: 'qiita', href: 'https://qiita.com/monokanke' },
+    { label: 'zenn', href: 'https://zenn.dev/monokanke' },
   ],
   now: {
     ja: 'Web 系の技術を学びながら、バックエンド寄りのフルスタックエンジニアを目指しています',
