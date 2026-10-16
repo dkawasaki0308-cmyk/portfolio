@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { ui, t } from '../../data/profile';
+import { url, formatDate } from '../../lib/url';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<Base lang="ja" title={t(ui.blog, 'ja')}>
+  <h1 class="page-title">{t(ui.blog, 'ja')} <span class="section-sub" lang="en">Blog</span></h1>
+  {
+    posts.length > 0 ? (
+      <ul class="post-list">
+        {posts.map((post) => (
+          <li lang={post.data.lang}>
+            <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+            <a href={url(`/blog/${post.id}/`)}>{post.data.title}</a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="entry-note">{t(ui.noPosts, 'ja')}</p>
+    )
+  }
+</Base>

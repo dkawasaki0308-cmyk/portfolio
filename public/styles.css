@@ -433,6 +433,36 @@ h3 {
   }
 }
 
+/* ---------- ブログ ---------- */
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-list li + li {
+  margin-top: 0.4rem;
+}
+
+.post-list time {
+  display: inline-block;
+  min-width: 6rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.more {
+  margin: 0.75rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+}
+
+.page-title {
+  margin: 3rem 0 1.5rem;
+  font-size: 1.4rem;
+}
+
 /* ---------- フッター ---------- */
 .site-footer {
   display: flex;
