@@ -43,6 +43,7 @@ export const profile = {
     en: 'A short self-introduction goes here. Write two or three sentences about your interests and what you are working on.',
   } as Text,
   links: [
+    { label: 'blog', href: '/blog/', internal: true },
     { label: 'github', href: 'https://github.com/dkawasaki0308-cmyk' },
     { label: 'x', href: 'https://x.com/' },
     { label: 'linkedin', href: 'https://www.linkedin.com/' },
