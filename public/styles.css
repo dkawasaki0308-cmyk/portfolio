@@ -123,6 +123,42 @@ h3 {
   }
 }
 
+/* ---------- Canvas ---------- */
+.garden {
+  margin: 0.5rem -4rem 0;
+}
+
+.garden canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 36 / 13;
+  opacity: 0;
+}
+
+.garden canvas.is-ready {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .garden canvas {
+    transition: opacity 1.2s ease;
+  }
+}
+
+.garden figcaption {
+  margin-top: 0.25rem;
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--muted);
+}
+
+@media (max-width: 40rem) {
+  .garden {
+    margin-inline: -1.5rem;
+  }
+}
+
 /* ---------- フッター ---------- */
 .site-footer {
   display: flex;
@@ -154,6 +190,7 @@ h3 {
   }
 
   .site-header,
+  .garden,
   .site-footer,
   .skip {
     display: none;
