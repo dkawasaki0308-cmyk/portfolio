@@ -43,6 +43,7 @@ export const profile = {
     en: 'A short self-introduction goes here. Write two or three sentences about your interests and what you are working on.',
   } as Text,
   links: [
+    { label: 'blog', href: '/blog/', internal: true },
     { label: 'github', href: 'https://github.com/dkawasaki0308-cmyk' },
     { label: 'x', href: 'https://x.com/' },
     { label: 'linkedin', href: 'https://www.linkedin.com/' },
@@ -156,6 +157,10 @@ export const ui = {
   skip: { ja: '本文へ', en: 'Skip to content' },
   now: { ja: 'いま', en: 'Now' },
   interests: { ja: '興味', en: 'Interests' },
+  blog: { ja: 'ブログ', en: 'Blog' },
+  allPosts: { ja: 'すべての記事 →', en: 'All posts →' },
+  noPosts: { ja: 'まだ記事はありません。', en: 'No posts yet.' },
   earlier: { ja: 'それ以前', en: 'Earlier' },
   top: { ja: '↑ トップへ', en: '↑ Top' },
+  back: { ja: '← 記事一覧', en: '← All posts' },
 } satisfies Record<string, Text>;
