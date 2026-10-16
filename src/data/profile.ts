@@ -161,4 +161,5 @@ export const ui = {
   noPosts: { ja: 'まだ記事はありません。', en: 'No posts yet.' },
   earlier: { ja: 'それ以前', en: 'Earlier' },
   top: { ja: '↑ トップへ', en: '↑ Top' },
+  back: { ja: '← 記事一覧', en: '← All posts' },
 } satisfies Record<string, Text>;
