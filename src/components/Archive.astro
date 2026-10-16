@@ -1,0 +1,33 @@
+---
+import EntryList from './EntryList.astro';
+import { ui, t, type Entry, type Lang } from '../data/profile';
+
+interface Props {
+  entries: Entry[];
+  lang: Lang;
+  label?: string;
+}
+
+const { entries, lang, label = t(ui.earlier, lang) } = Astro.props;
+---
+
+<details class="archive">
+  <summary><span class="plus" aria-hidden="true"></span>{label} ({entries.length})</summary>
+  <EntryList entries={entries} lang={lang} />
+</details>
+
+<script>
+  // 印刷時は折りたたみをすべて開き、印刷後に元に戻す
+  addEventListener('beforeprint', () => {
+    document.querySelectorAll<HTMLDetailsElement>('details.archive:not([open])').forEach((d) => {
+      d.open = true;
+      d.dataset.printOpened = '';
+    });
+  });
+  addEventListener('afterprint', () => {
+    document.querySelectorAll<HTMLDetailsElement>('details[data-print-opened]').forEach((d) => {
+      d.open = false;
+      delete d.dataset.printOpened;
+    });
+  });
+</script>

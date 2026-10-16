@@ -234,6 +234,69 @@ h3 {
   }
 }
 
+/* ---------- 折りたたみ ---------- */
+.archive {
+  margin-top: 0.75rem;
+}
+
+.archive summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  user-select: none;
+}
+
+.archive summary::-webkit-details-marker {
+  display: none;
+}
+
+.archive summary:hover {
+  color: var(--accent);
+}
+
+.plus {
+  position: relative;
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1px;
+  background: currentColor;
+}
+
+.plus::after {
+  transform: rotate(90deg);
+}
+
+.archive[open] .plus::after {
+  transform: rotate(0deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .plus::after {
+    transition: transform 0.2s ease;
+  }
+
+  .archive summary:active {
+    transform: translateY(1px);
+    transition: transform 90ms;
+  }
+}
+
+.archive .entries {
+  margin-top: 0.6rem;
+}
+
 /* ---------- フッター ---------- */
 .site-footer {
   display: flex;
@@ -267,7 +330,8 @@ h3 {
   .site-header,
   .garden,
   .site-footer,
-  .skip {
+  .skip,
+  .plus {
     display: none;
   }
 
