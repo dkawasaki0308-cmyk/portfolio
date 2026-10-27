@@ -63,3 +63,5 @@ draft: true    # 下書きのときだけ付ける
 - `main` に push されると、GitHub Actions（`.github/workflows/deploy.yml`）がビルドして GitHub Pages に公開します
 - リポジトリの Settings → Pages → Source は「GitHub Actions」にしておきます
 - 普段の作業は `develop` に PR でマージし、公開するときに `develop` → `main` のリリース PR を作ります（詳しくは [CLAUDE.md](CLAUDE.md)）
+
+
