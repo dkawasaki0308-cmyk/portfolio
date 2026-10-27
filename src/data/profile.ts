@@ -53,7 +53,7 @@ export const profile = {
     { label: 'zenn', href: 'https://zenn.dev/monokanke' },
   ],
   now: {
-    ja: 'Web 系の技術を学びながら、バックエンド寄りのフルスタックエンジニアを目指しています',
+    ja: 'Web 系の技術を学びながらバックエンド寄りのフルスタックエンジニアを目指しています',
     en: 'Studying web technologies on my way to becoming a backend-leaning full-stack engineer',
   } as Text,
   interests: {
